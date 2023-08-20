@@ -1,0 +1,1 @@
+#Toma la info que luce de una manera y la transformamos
