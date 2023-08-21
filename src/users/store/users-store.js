@@ -7,12 +7,16 @@ const state = {
 
 const loadNextPage = async () => {
     const users = await loadUsersByPage(state.currentPage + 1);
-    if (users - length === 0) return;
+    if (users.length === 0) return;
     state.currentPage += 1;
     state.users = users;
 }
 
 const loadPreviousPage = async () => {
+    const users = await loadUsersByPage(state.currentPage - 1);
+    if (state.currentPage === 1) return;
+    state.currentPage -= 1;
+    state.users = users;
 
 }
 
