@@ -11,6 +11,7 @@ export const showModal = () => {
 
 export const hideModal = () => {
     modal?.classList.add('hide-modal');
+    form?.reset();
 }
 /**
  * 
@@ -30,7 +31,29 @@ export const renderModal = (element) => {
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        console.log('formulario enviado');
+        const formData = new FormData(form);
+        const userLike = {};
+
+        for (const [key, value] of formData) {
+            if (key === 'balance') {
+                userLike[key] = Number(value);
+                continue;
+            }
+            if (key === 'firstName') {
+                userLike['first_name'] = value;
+                continue;
+            }
+            if (key === 'isActive') {
+                userLike[key] = (value === 'on') ? true : false;
+                continue;
+            }
+            if (key === 'lastName') {
+                userLike['last_name'] = value;
+                continue;
+            }
+            userLike[key] = value;
+        }
+        console.log(userLike);
     })
 
     element.append(modal);
