@@ -18,6 +18,7 @@ const createButtons = (element) => {
         renderTable(element);
     });
     const currentPageLabel = document.createElement('span');
+    currentPageLabel.className = 'current-page';
     currentPageLabel.innerText = usersStore.getCurrentPage();
     return { backButton, nextButton, currentPageLabel };
 }

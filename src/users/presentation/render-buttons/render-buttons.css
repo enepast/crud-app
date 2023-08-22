@@ -1,4 +1,4 @@
-span {
+.current-page {
     background-color: rgba(0, 0, 0, 0.348);
     border-radius: 10px;
     color: white !important;
